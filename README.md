@@ -6,7 +6,7 @@ The `gomythic` package creates a way to interact and control a Mythic instance p
 You can install the mythic scripting interface from github using `go get`:
 
 ```
-go get github.com/antman1p/gomythic
+go get github.com/antman1p/gomythic@latest
 ```
 Then import the package into your git project file from where you intend to interact with Mythic.  For example:
 ```
