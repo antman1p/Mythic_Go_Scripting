@@ -311,6 +311,19 @@ func (m *Mythic) newWebsocketConn(sc *graphql.SubscriptionClient) (graphql.Webso
     }, nil
 }
 
+// Ping sends a ping message through the WebSocket connection
+// This is a simple implementation and might need to be adjusted based on actual requirements
+func (h *MythicWebSocketHandler) Ping() error {
+    // Set a write deadline based on the current time and the timeout duration
+    deadline := time.Now().Add(h.timeout)
+    if err := h.Conn.SetWriteDeadline(deadline); err != nil {
+        return err
+    }
+    // Send a ping message
+    // Note: The actual message sent with the ping is often irrelevant, but you can send specific data if needed
+    return h.Conn.WriteMessage(websocket.PingMessage, []byte{})
+}
+
 
 // ReadJSON function reads JSON data from the WebSocket connection.
 func (h *MythicWebSocketHandler) ReadJSON(v interface{}) error {
